@@ -134,8 +134,9 @@
 
 .prev{
   position: absolute;
-  left: 420px;
-  top:220px;
+  left: 20px;
+  top:50%;
+  transform: translate(0, -50%);
   border: 0;
   padding: 15px 10px;
   background-color: #fff;
@@ -145,8 +146,9 @@
 
 .next{
   position: absolute;
-  right: 380px;
-  top:220px;
+  right: 20px;
+  top:50%;
+  transform: translate(0, -50%);
   border: 0;
   padding: 15px 10px;
   background-color: #fff;
@@ -775,3 +777,72 @@ select option:checked{
   padding: 5px 32px;
 }
 
+
+
+
+/*************************************fOOTER*/
+
+.footer{
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-top: 1px solid #bbb;
+  box-shadow: 5px 0 0 #bbb;
+  margin:300px auto;
+}
+
+.footer .logo{
+  position: absolute;
+  top:50%;
+  left:250px;
+  transform: translate(0,-50%); 
+}
+
+.footer .distributor{
+  position: absolute;
+  right:325px;
+  top:25px;
+}
+
+.footer .logo-supply{
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1vh);
+  row-gap: 10px;
+  column-gap: 90px;
+  position: absolute;
+  right:300px;
+  top:50px
+}
+
+[class^="iconlogo-"].visible, [class*="iconlogo-"].visible {
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 24px;
+  width: 80px;
+  line-height: 30px;
+  vertical-align: middle;
+  background-size: 250px 200px;
+  background-image: url(//cdn.tgdd.vn/mwgcart/mwgcore/ContentMwg/images/DMX/Global/Desktop/Logo-webmoi.webp)
+}
+
+.iconlogo-topzone {
+  background-position: 0 -58px;
+}
+
+
+.iconlogo-dienmayxanh {
+  background-position: -85px 0;
+}
+
+.iconlogo-bachhoaxanh {
+  background-position: -170px 0;
+}
+
+.iconlogo-ankhang {
+  background-position: -85px -90px;
+}
+
+.iconlogo-tantam {
+  background-position: -170px -90px;
+}
