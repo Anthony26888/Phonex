@@ -12,7 +12,7 @@ let showMore = document.querySelector(".showMore");
 let products = [
   {
     brand: "Apple",
-    kind: "Phone",
+    kind: "Mobile",
     system: "IOS",
     image: "iphone-14pm.png",
     name: "Iphone 14 Pro Max",
@@ -24,7 +24,7 @@ let products = [
   },
   {
     brand: "Apple",
-    kind: "Phone",
+    kind: "Mobile",
     system: "IOS",
     image: "iphone-14.png",
     name: "Iphone 14",
@@ -36,7 +36,7 @@ let products = [
   },
   {
     brand: "Apple",
-    kind: "Phone",
+    kind: "Mobile",
     system: "IOS",
     image: "iphone-14-pro.png",
     name: "Iphone 14 Pro",
@@ -48,7 +48,7 @@ let products = [
   },
   {
     brand: "Apple",
-    kind: "Pad",
+    kind: "Tablet",
     system: "IOS",
     image: "ipad-pro-m1.png",
     name: "Ipad Pro M1",
@@ -60,7 +60,7 @@ let products = [
   },
   {
     brand: "Apple",
-    kind: "Watch",
+    kind: "SmartWatch",
     system: "IOS",
     image: "apple-watch-ultra-alpine.png",
     name: "Apple Watch Ultra Alpine",
@@ -73,7 +73,7 @@ let products = [
   },
   {
     brand: "Nokia",
-    kind: "Phone",
+    kind: "Mobile",
     system: "Android",
     image: "nokia-c21-plus.png",
     name: "Nokia C21 Plus",
@@ -85,7 +85,7 @@ let products = [
   },
   {
     brand: "Oppo",
-    kind: "Phone",
+    kind: "Mobile",
     system: "Android",
     image: "oppo-find-n2.png",
     name: "Oppo Find N2",
@@ -97,7 +97,7 @@ let products = [
   },
   {
     brand: "Realme",
-    kind: "Phone",
+    kind: "Mobile",
     system: "Android",
     image: "realme-c55.png",
     name: "Realme C55",
@@ -109,7 +109,7 @@ let products = [
   },
   {
     brand: "Samsung",
-    kind: "Phone",
+    kind: "Mobile",
     system: "Android",
     image: "samsung-galaxy-zfold4.png",
     name: "Samsung Galaxy Z Fold 4",
@@ -121,7 +121,7 @@ let products = [
   },
   {
     brand: "Samsung",
-    kind: "Phone",
+    kind: "Mobile",
     system: "Android",
     image: "samsung-galaxy-z-flip4-5g.png",
     name: "Samsung Galaxy Z Flip 4",
@@ -133,7 +133,7 @@ let products = [
   },
   {
     brand: "Samsung",
-    kind: "Phone",
+    kind: "Mobile",
     system: "Android",
     image: "Samsung-Galaxy-S21-FE.png",
     name: "Samsung Galaxy S21 FE",
@@ -146,7 +146,7 @@ let products = [
   
   {
     brand: "Samsung",
-    kind: "Pad",
+    kind: "Tablet",
     system: "Android",
     image: "samsung-galaxy-tab-a8.png",
     name: "Samsung Galaxy Tab A8",
@@ -158,7 +158,7 @@ let products = [
   },
   {
     brand: "Samsung",
-    kind: "Watch",
+    kind: "SmartWatch",
     system: "Android",
     image: "samsung-galaxy-watch5.png",
     name: "Samsung Galaxy Watch 5",
@@ -171,7 +171,7 @@ let products = [
   },
   {
     brand: "Vivo",
-    kind: "Phone",
+    kind: "Mobile",
     system: "Android",
     image: "vivo-v23.png",
     name: "Vivo V23 Series",
@@ -183,7 +183,7 @@ let products = [
   },
   {
     brand: "Vivo",
-    kind: "Phone",
+    kind: "Mobile",
     system: "Android",
     image: "vivo-y02s.png",
     name: "Vivo Y02s",
@@ -195,7 +195,7 @@ let products = [
   },
   {
     brand: "Xiaomi",
-    kind: "Phone",
+    kind: "Mobile",
     system: "Android",
     image: "xiaomi-readmi-note11s.png",
     name: "Xiaomi Readmi Note 11",
@@ -207,7 +207,7 @@ let products = [
   },
   {
     brand: "Xiaomi",
-    kind: "Pad",
+    kind: "Tablet",
     system: "Android",
     image: "Redmi-Pad.png",
     name: "Xiaomi Readmi Pad",
@@ -231,6 +231,7 @@ function showCard(ProductFilter) {
   let result = document.querySelector(".num-result");  
   result.innerHTML= ProductFilter.length;
   list.innerHTML = "";     
+
   const items = ProductFilter.slice(0, itemsToShow);
   items.forEach((value, key) => {    
     let newDiv = document.createElement("div");    
@@ -270,7 +271,8 @@ function showCard(ProductFilter) {
       newDiv.appendChild(newButton);    
     list.appendChild(newDiv);
   });
-  if(itemsToShow >=products.length){
+  const numberLimit =8;
+  if(ProductFilter.length < numberLimit){
     showMore.style.display="none";
   }
 }
@@ -369,6 +371,10 @@ function changeQuantity(key, quantity) {
   }
   reloadCart();
 }
+
+
+
+
 /**********************remove item cart */
 function clearLi(key){
   delete listCarts[key];
@@ -377,6 +383,10 @@ function clearLi(key){
   }
   reloadCart();
 }
+
+
+
+
 
 
 /***********************OPEN - CLOSE MODAL CART */
@@ -398,8 +408,7 @@ function OpenCart() {
 
 
 /************************************FILTER PRODUCT */
-filters.addEventListener("submit", function (event) {
-  let kind = document.getElementById("category").value;
+filters.addEventListener("submit", function (event) {   
   let rangePrice = document.getElementById("price").value;
   let system = document.getElementById("system").value;
   let storageFilter = document.getElementById("storage").value;
@@ -409,16 +418,10 @@ filters.addEventListener("submit", function (event) {
   const max2 = 20000000;
   const max3 = 30000000;
 
-  event.preventDefault();
-  const items = products.slice(0, itemsToShow);
-  const ProductFilter = items.filter((product) => {
+  event.preventDefault();  
+  const ProductFilter = products.filter((product) => {
 
-    if (kind != "") {
-      if (product.kind != kind) {
-        return false;
-      }
-    }
-
+    
     if (rangePrice != "") {
       if (rangePrice == max0) {
         if (product.price > max0) {
@@ -468,99 +471,70 @@ filters.addEventListener("submit", function (event) {
   showCard(ProductFilter);      
 });
 
+
+
+
+
+
 /******************************LOGO - BRAND */
-let logo1 = document.querySelector(".logo1");
-let logo2 = document.querySelector(".logo2");
-let logo3 = document.querySelector(".logo3");
-let logo4 = document.querySelector(".logo4");
-let logo5 = document.querySelector(".logo5");
-let logo6 = document.querySelector(".logo6");
-let logo7 = document.querySelector(".logo7");
-let brand1 = logo1.getAttribute("data-value");
-let brand2 = logo2.getAttribute("data-value");
-let brand3 = logo3.getAttribute("data-value");
-let brand4 = logo4.getAttribute("data-value");
-let brand5 = logo5.getAttribute("data-value");
-let brand6 = logo6.getAttribute("data-value");
-let brand7 = logo7.getAttribute("data-value");
-function filter1() {
-  let ProductFilters = products.filter((product) => {
-    if (brand1 != product.brand) {
+
+function filterBrand(li){
+  let filterData = li.getAttribute("data-value");
+  let ProductFilter = products.filter((product) =>{
+    if(filterData != product.brand){
       return false;
     }
     return true;
-  });
-  showCard(ProductFilters);
+  })
+  showCard(ProductFilter);
 }
 
-function filter2() {
-  let ProductFilters = products.filter((product) => {
-    if (brand2 != product.brand) {
+
+
+
+/*****************************************FILTER BRAND */
+function menu(li){
+  let menuData = li.getAttribute("data-value");  
+  let ProductFilter = products.filter((product) =>{
+    if(menuData != product.kind){
       return false;
     }
     return true;
-  });
-  showCard(ProductFilters);
-}
-
-function filter2() {
-  let ProductFilters = products.filter((product) => {
-    if (brand2 != product.brand) {
-      return false;
-    }
-    return true;
-  });
-  showCard(ProductFilters);
-}
-
-function filter3() {
-  let ProductFilters = products.filter((product) => {
-    if (brand3 != product.brand) {
-      return false;
-    }
-    return true;
-  });
-  showCard(ProductFilters);
-}
-
-function filter4() {
-  let ProductFilters = products.filter((product) => {
-    if (brand4 != product.brand) {
-      return false;
-    }
-    return true;
-  });
-  showCard(ProductFilters);
-}
-
-function filter5() {
-  let ProductFilters = products.filter((product) => {
-    if (brand5 != product.brand) {
-      return false;
-    }
-    return true;
-  });
-  showCard(ProductFilters);
-}
-
-function filter6() {
-  let ProductFilters = products.filter((product) => {
-    if (brand6 != product.brand) {
-      return false;
-    }
-    return true;
-  });
-  showCard(ProductFilters);
-}
-
-function filter7() {
-  let ProductFilters = products.filter((product) => {
-    if (brand7 != product.brand) {
-      return false;
-    }
-    return true;
-  });
-  showCard(ProductFilters);
+  })  
+  showCard(ProductFilter);
 }
 
 
+
+
+
+
+
+
+/***************************************SILDER SHOW */
+let slideIndex = 1;
+showSlide(slideIndex);
+
+function plusSlide(n){
+  showSlide(slideIndex += n);
+}
+
+function currentSlide(n){
+  showSlide(slideIndex = n);
+}
+
+function showSlide(n){
+  let i;
+  let slides =document.getElementsByClassName("slider");
+  if(n>slides.length){
+    slideIndex =1;
+  }
+  if(n<1){
+    slideIndex =slides.length;
+  }
+  for (i=0; i<slides.length; i++){
+    slides[i].style.display="none"
+  }
+  slides[slideIndex-1].style.display="block";
+
+}

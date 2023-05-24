@@ -28,51 +28,63 @@
     </div>
 
     <ul class="main-menu">
-      <li>
+      <li onclick="menu(this)" data-value="Mobile">
         <img src="img/main-menu/smartphone.png" alt="smart-phone">
         <span>Mobile</span>
       </li>
-      <li>
+      <li onclick="menu(this)" data-value="Tablet">
         <img src="img/main-menu/ipad.png" alt="Tablet">
         <span>Tablet</span>
       </li>
-      <li>
+      <li onclick="menu(this)" data-value="SmartWatch">
         <img src="img/main-menu/watch.png" alt="smart-watch">
         <span>SmartWatch</span>
       </li>
-      <li>
+      <li onclick="menu(this)" data-value="Laptop">
         <img src="img/main-menu/laptop.png" alt="smart-watch">
         <span>Laptop</span>
       </li>
-      <li>
+      <li onclick="menu(this)" data-value="Accessory">
         <img src="img/main-menu/headphones.png" alt="smart-watch">
         <span>Accessory</span>
-      </li>     
+      </li>   
+      <span class="test"></span>  
     </ul>
   </div>
 
   <div class="slide">
-    <img src="img/slide/12c-800-200-800x200.png" alt="">
-    <img src="" alt="">
-    <img src="" alt="">
-    <img src="" alt="">
-    <img src="" alt="">
-    <img src="" alt="">
-    <img src="" alt="">
-    <img src="" alt="">
-  </div>
-  
-  <form class="filter">
-    <div class="item">        
-      <select name="category" id="category">          
-        <option value="" disabled selected hidden>Type</option>
-        <option value="Phone">Mobile</option>
-        <option value="Pad">Pad</option>
-        <option value="Watch">Watch</option>
-      
-      </select>
+    <div class="slider">
+      <img src="img/slide/12c-800-200-800x200.png" alt="">
     </div>
-    
+    <div class="slider">
+      <img src="img/slide/a34-800-200-800x200.png" alt="">
+    </div>    
+    <div class="slider">
+      <img src="img/slide/iP-11-800-200-800x200.png" alt="">
+    </div>
+    <div class="slider">
+      <img src="img/slide/nokia-g22-800-200-800x200-2.png" alt="">
+    </div>
+    <div class="slider">
+      <img src="img/slide/realme-C55-800-200-800x200-1.png" alt="">
+    </div>
+    <div class="slider">
+      <img src="img/slide/reno8t-800-200-800x200.png" alt="">
+    </div>
+    <div class="slider">
+      <img src="img/slide/s23-800-200-800x200-3.png" alt="">
+    </div>
+    <div class="slider">
+      <img src="img/slide/vivo-V27e--800-200-800x200.png" alt="">
+    </div>
+  </div>
+
+  <!--next/pre-->
+  <a class="prev" onclick="plusSlide(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlide(+1)">&#10095;</a>
+
+  
+  <form class="filter">   
 
     <div class="item">        
       <select name="price" id="price">
@@ -116,26 +128,26 @@
   </ul>
 
   <ul class="logo-filter">
-    <li class="brand logo1" data-value="Apple" onclick="filter1()">
-      <img src="img/logo-brand/logo-iphone-220x48.png" alt="">
+    <li class="brand" data-value="Apple" onclick="filterBrand(this)">
+      <img src="img/logo-brand/logo-iphone-220x48.png" alt="Apple">
     </li>
-    <li class="brand logo2" data-value="Samsung" onclick="filter2()">
-      <img src="img/logo-brand/samsungnew-220x48-1.png" alt="">
+    <li class="brand" data-value="Samsung" onclick="filterBrand(this)">
+      <img src="img/logo-brand/samsungnew-220x48-1.png" alt="Samsung">
     </li>
-    <li class="brand logo3" data-value="Nokia" onclick="filter3()">
-      <img src="img/logo-brand/Nokia42-b_21.jpg" alt="">
+    <li class="brand" data-value="Nokia" onclick="filterBrand(this)">
+      <img src="img/logo-brand/Nokia42-b_21.jpg" alt="Nokia">
     </li>
-    <li class="brand logo4" data-value="Xiaomi" onclick="filter4()">
-      <img src="img/logo-brand/logo-xiaomi-220x48-5.png" alt="">
+    <li class="brand" data-value="Xiaomi" onclick="filterBrand(this)">
+      <img src="img/logo-brand/logo-xiaomi-220x48-5.png" alt="Xiaomi">
     </li>
-    <li class="brand logo5" data-value="Oppo" onclick="filter5()">
-      <img src="img/logo-brand/OPPO42-b_5.jpg" alt="">
+    <li class="brand" data-value="Oppo" onclick="filterBrand(this)">
+      <img src="img/logo-brand/OPPO42-b_5.jpg" alt="Oppo">
     </li>
-    <li class="brand logo6" data-value="Realme" onclick="filter6()">
-      <img src="img/logo-brand/Realme42-b_37.png" alt="">
+    <li class="brand" data-value="Realme" onclick="filterBrand(this)">
+      <img src="img/logo-brand/Realme42-b_37.png" alt="Realme">
     </li>
-    <li class="brand logo7" data-value="Vivo" onclick="filter7()">
-      <img src="img/logo-brand/vivo-logo-220-220x48-3.png" alt="">
+    <li class="brand" data-value="Vivo" onclick="filterBrand(this)">
+      <img src="img/logo-brand/vivo-logo-220-220x48-3.png" alt="Vivo">
     </li>
   </ul>
 
