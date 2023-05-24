@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <div class="navbar">
+    <a href="index.html"><span class="logo">PHONE X</span></a>
+    <div class="cart" onclick="OpenCart()">
+      <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+      <div class="quantity">0</div>
+    </div>
+    <div class="looking">
+      <input type="text" placeholder="What are you looking for?">
+      <i class="fa fa-search" aria-hidden="true"></i>
+    </div>
+    <div class="user">
+      <i class="fa fa-user" aria-hidden="true"></i>
+    </div>
+
+    <ul class="main-menu">
+      <li>
+        <img src="img/main-menu/smartphone.png" alt="smart-phone">
+        <span>Mobile</span>
+      </li>
+      <li>
+        <img src="img/main-menu/ipad.png" alt="Tablet">
+        <span>Tablet</span>
+      </li>
+      <li>
+        <img src="img/main-menu/watch.png" alt="smart-watch">
+        <span>SmartWatch</span>
+      </li>
+      <li>
+        <img src="img/main-menu/laptop.png" alt="smart-watch">
+        <span>Laptop</span>
+      </li>
+      <li>
+        <img src="img/main-menu/headphones.png" alt="smart-watch">
+        <span>Accessory</span>
+      </li>     
+    </ul>
+  </div>
+
+  <div class="slide">
+    <img src="img/slide/12c-800-200-800x200.png" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+  </div>
+  
+  <form class="filter">
+    <div class="item">        
+      <select name="category" id="category">          
+        <option value="" disabled selected hidden>Type</option>
+        <option value="Phone">Mobile</option>
+        <option value="Pad">Pad</option>
+        <option value="Watch">Watch</option>
+      
+      </select>
+    </div>
+    
+
+    <div class="item">        
+      <select name="price" id="price">
+        <option value="" disabled selected hidden>Price</option>
+        <option value="5000000">0 - 5,000,000 đ</option>
+        <option value="10000000">5,000,000 - 10,000,000</option>
+        <option value="20000000">10,000,000 - 20,000,000</option>
+        <option value="30000000">20,000,000 - 30,000,000</option>
+      </select>
+    </div>
+
+    <div class="item">
+      <select name="system" id="system">
+        <option value="" disabled selected hidden>System</option>
+        <option value="Android">Android</option>
+        <option value="IOS">Iphone (IOS)</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="item">
+      <select name="storage" id="storage">
+        <option value="" disabled selected hidden>Storage</option>
+        <option value="64GB">64GB</option>
+        <option value="128GB">128GB</option>
+        <option value="256GB">256GB</option>
+        <option value="512GB">512GB</option>
+        <option value="1TB">1TB</option>
+      </select>
+    </div>
+    
+    <div class="item submit">
+      <button class="search">Search</button>
+    </div>
+  </form>
+
+  <ul class="result">
+    <li>Result: </li>
+    <li class="num-result"></li>
+    <li>products</li>        
+  </ul>
+
+  <ul class="logo-filter">
+    <li class="brand logo1" data-value="Apple" onclick="filter1()">
+      <img src="img/logo-brand/logo-iphone-220x48.png" alt="">
+    </li>
+    <li class="brand logo2" data-value="Samsung" onclick="filter2()">
+      <img src="img/logo-brand/samsungnew-220x48-1.png" alt="">
+    </li>
+    <li class="brand logo3" data-value="Nokia" onclick="filter3()">
+      <img src="img/logo-brand/Nokia42-b_21.jpg" alt="">
+    </li>
+    <li class="brand logo4" data-value="Xiaomi" onclick="filter4()">
+      <img src="img/logo-brand/logo-xiaomi-220x48-5.png" alt="">
+    </li>
+    <li class="brand logo5" data-value="Oppo" onclick="filter5()">
+      <img src="img/logo-brand/OPPO42-b_5.jpg" alt="">
+    </li>
+    <li class="brand logo6" data-value="Realme" onclick="filter6()">
+      <img src="img/logo-brand/Realme42-b_37.png" alt="">
+    </li>
+    <li class="brand logo7" data-value="Vivo" onclick="filter7()">
+      <img src="img/logo-brand/vivo-logo-220-220x48-3.png" alt="">
+    </li>
+  </ul>
+
+  <div class="container">    
+    <div class="list"></div>
+    <button class="showMore"><span>Show More</span></button>
+  </div>
+  
+  <div class="modal-cart">
+    <h1>CART</h1>
+    <ul class="listCart"></ul>
+    <div class="total">
+      <span>Total: </span>
+      <span class="total-number">$0</span>
+    </div>
+    <div class="button-cart">
+      <button onclick="closeCart()" type="button" class="CloseModal">CLOSE</button>
+      <button class="CheckOut">CHECK OUT <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script type="text/javascript" src="data.json"></script>
+
+</body>
+
+</html>
