@@ -4,19 +4,24 @@
 /******************************header*****************************/
 
 .navbar {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 110px;
-  border: 1px soild black;  
+  left:-5px;  
+  background-color: #ffd400;
+}
+.nav{
+  position: absolute;
+  width: 1000px;
+  height:110px;   
   top: 2%;
   left: 50%;
   transform: translate(-50%, -2%);
-  background-color: #ffd400;
 }
 
 .logo {
   position: absolute;
-  left: 250px;
+  left: 0;
   top: 0;
   font-size: 40px;
   font-family: "Bruno Ace SC", cursive;
@@ -25,7 +30,7 @@
 .looking{  
   display: flex;
   position: absolute;
-  left:850px;
+  right:150px;
   top:10px;
   
 }
@@ -47,7 +52,7 @@
 .cart {
   position: absolute;
   top:5px;
-  right: 320px;
+  right: 70px;
   font-size: 30px;
   cursor: pointer;
 }
@@ -55,7 +60,7 @@
 .user{
   position: absolute;
   top:5px;
-  right: 250px;
+  right: 0;
   font-size: 30px;
   cursor: pointer;
 }
@@ -75,34 +80,31 @@
   right: -20%;
 }
 
-.main-menu{
-  display: flex;
-  list-style: none;
-  width: 1000px;
-  position: absolute;
-  top:40px;
-  left: 50%;
-  transform: translate(-50%, 0);
+.nav .main-menu{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);  
+  row-gap: 10px;
+  width: 800px;  
+  margin:60px auto;
+  
   
 }
 
-.main-menu li{
-  margin:0 40px;
+.main-menu .item-menu{
+  margin:0 auto;
   display: flex;
-  width: 100px;  
-  justify-content: space-between;
+  width: 60px;    
   align-items: center;
   text-align: center;
-  cursor: pointer;
-  
+  cursor: pointer;    
 }
 
-.main-menu li img{
+.main-menu .item-menu img{
   width:40px;
   height:40px;  
 }
 
-.main-menu li span{
+.main-menu .item-menu span{
   font-size: 13px;
   margin-left: 10px;
 }
@@ -122,8 +124,8 @@
   width: 800px;
   height:200px;
   position: relative;
-  top:130px;
-  left:51%;
+  top:20px;
+  left:50%;
   transform: translate(-50%,0);
 }
 
@@ -187,15 +189,14 @@ h1, h2, h3, h4, h5, span{
 }
 
 
-
 .list {
-  margin:330px auto; 
-  width: 1060px;
+  margin: 230px auto;
+  width: 1000px;
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: 250px 250px 250px 250px;
-  grid-column-end: 4;
-
+  grid-template-columns: 240px 240px 240px 240px;
+  
+  
   
 }
 
@@ -759,7 +760,7 @@ select option:checked{
 /**********************************LOAD MORE PAGE****/
 .showMore{  
   display: flex;
-  margin:-250px auto;
+  margin:-180px auto;
   list-style: none;
   width:150px;
   background-color: #ffffff;
@@ -845,4 +846,159 @@ select option:checked{
 
 .iconlogo-tantam {
   background-position: -170px -90px;
+}
+
+
+
+
+
+
+
+/**********************************RESPONSIVE WEB***********************/
+@media only screen and (max-width: 768px){
+  .navbar{
+    width: 100%;
+  }
+  .nav{
+    width: 95%;
+  }
+  .nav .main-menu {
+    width:650px; 
+  }
+  .nav .main-menu .item-menu span{
+    font-size: 12px;
+  }
+  .slide{
+    width: 95%;
+    margin: 0px auto;
+  }
+  .slide .next{
+    right:60px;
+  }
+  .slide img{
+    width: 95%;
+  }
+  .filter{
+    margin: -20px auto;
+    width:80%;
+  }
+
+  .logo-filter{
+    width: 95%;
+    margin:-10px auto;
+  }
+
+  .container .list{
+    width:95%;
+    grid-template-columns: 225px 225px 225px;
+    margin: 230px auto;
+  }
+  .footer{
+    height:200px;
+  }
+  .footer .logo{
+    left:50px;
+  }
+  .footer .distributor{
+    right:150px;
+  }
+  .footer .logo-supply{
+    right:120px;
+  }
+  
+}
+
+
+
+@media only screen and (max-width: 600px){
+  .navbar{
+    width: 100%;
+  }
+  .nav{
+    width: 100%;    
+  }
+  .nav .logo{
+    top:10px;    
+    font-size: 25px;
+  }
+  .nav .cart{
+    right:13%;
+  }
+  .nav .user{
+    right:5%;
+  }
+  .nav .looking{    
+    left:35%;
+  }
+  .nav .looking input{
+    width: 150px;
+  }
+  .nav .main-menu {
+    width:90%;    
+    margin-right: 50px;
+  }
+  .nav .main-menu .item-menu{
+    width:50px;    
+  }
+  .nav .main-menu .item-menu img{
+    width:30px;
+    height:30px;
+
+  }
+  .nav .main-menu .item-menu span{
+    font-size: 8px;
+    width: 5px;    
+  }
+  .slide{
+    width: 95%;
+    margin: 0px auto;
+  }
+  .slide .next{
+    right:60px;
+    top: 50px;
+  }
+  .slide .prev{    
+    top: 50px;
+  }
+  .slide img{
+    width: 95%;
+  }
+  .filter{
+    margin: -130px auto;
+    width:90%;
+    grid-template-columns: repeat(3,1fr);
+    row-gap: 20px;
+  }
+  .filter select{
+    width:95px;    
+  }
+  .filter .submit{
+    margin: 0 auto;
+  }
+  .result{
+    margin:-70px auto;
+  }
+  .logo-filter{
+    width: 95%;
+    margin:-100px auto;
+  }
+
+  .container .list{
+    width:95%;
+    grid-template-columns: 200px 200px;
+    margin: 150px auto;
+  }
+  .footer{
+    height:200px;
+  }
+  .footer .logo{
+    left:50px;
+  }
+  .footer .distributor{
+    right:150px;
+  }
+  .footer .logo-supply{
+    right:120px;
+  }
+  
 }
